@@ -1,15 +1,19 @@
 import java.util.Scanner;
 
 public class ArrayCrud {
-    static int next, n;
+    int next, n;
+    ArrayCrud(int size){
+        this.n = size;
+        this.next = 0;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter no of elements: ");
-        n = Integer.parseInt(sc.nextLine());
+        int size = Integer.parseInt(sc.nextLine());
+        ArrayCrud obj = new ArrayCrud(size);
 
-        int[] arr = new int[n];
-        next = 0;
+        int[] arr = new int[size];
 
         while(true){
             System.out.println("\n----------------------\nEnter choice: ");
@@ -19,27 +23,27 @@ public class ArrayCrud {
                 case 1:
                     System.out.println("\nEnter element to insert: ");
                     int num = Integer.parseInt(sc.nextLine());
-                    insert(arr, num);
+                    obj.insert(arr, num);
                     break;
                 case 2:
                     System.out.println("\nEnter element to delete: ");
                     num = Integer.parseInt(sc.nextLine());
-                    delete(arr, num);
+                    obj.delete(arr, num);
                     break;
                 case 3:
                     System.out.println("\nEnter old value to update: ");
                     int old = Integer.parseInt(sc.nextLine());
                     System.out.println("Enter new value: ");
                     num = Integer.parseInt(sc.nextLine());
-                    update(arr, old, num);
+                    obj.update(arr, old, num);
                     break;
                 case 4:
                     System.out.println("\nEnter element to find: ");
                     num = Integer.parseInt(sc.nextLine());
-                    find(arr, num);
+                    obj.find(arr, num);
                     break;
                 case 5:
-                    display(arr);
+                    obj.display(arr);
                     break;
                 case 6: 
                     System.out.println("Thank you!");
@@ -50,7 +54,7 @@ public class ArrayCrud {
             }
         }
     }
-    static void insert(int[] arr, int num){
+    void insert(int[] arr, int num){
         if(next == n){
             System.out.println("Array is FULL!");
             return;
@@ -58,7 +62,7 @@ public class ArrayCrud {
         arr[next++] = num;
         System.out.println("Element inserted!");
     }
-    static void delete(int[] arr, int num){
+    void delete(int[] arr, int num){
         if(next==0){
             System.out.println("Array is EMPTY!");
             return;
@@ -71,12 +75,13 @@ public class ArrayCrud {
                 }
                 arr[next-1] = -1;//default value
                 next--;//next empty slot
+                n--;
                 System.out.println("Element "+num+" deleted!");
                 return;
             }
         }
     }
-    static void update(int[] arr, int old, int newele){
+    void update(int[] arr, int old, int newele){
         if(next==0){
             System.out.println("Array is EMPTY!");
             return;
@@ -89,7 +94,7 @@ public class ArrayCrud {
             }
         }
     }
-    static void find(int[] arr, int num){
+    void find(int[] arr, int num){
         if(next==0){
             System.out.println("Array is EMPTY!");
             return;
@@ -101,7 +106,7 @@ public class ArrayCrud {
             }
         }
     }
-    static void display(int[] arr){
+     void display(int[] arr){
         if(next==0){
             System.out.println("Array is EMPTY!");
             return;
