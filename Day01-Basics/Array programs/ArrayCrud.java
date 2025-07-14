@@ -13,7 +13,7 @@ public class ArrayCrud {
 
         while(true){
             System.out.println("\n----------------------\nEnter choice: ");
-            System.out.println("1. INSERT \n2. DELETE \n3.UPDATE \n4. READ\n5. DISPLAY\n6. EXIT\n-----------------------");
+            System.out.println("1. INSERT \n2. DELETE \n3. UPDATE \n4. READ\n5. DISPLAY\n6. EXIT\n-----------------------");
             int ch = Integer.parseInt(sc.nextLine());
             switch(ch){
                 case 1:
