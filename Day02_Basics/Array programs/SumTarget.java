@@ -9,6 +9,7 @@ public class SumTarget {
         int[] arr = new int[n];
 
         String[] nums = sc.nextLine().split(" ");
+        sc.close();
         
         int i=0;
         for(String num : nums){
@@ -22,11 +23,10 @@ public class SumTarget {
 
         if(ans.size()== 0)
             System.out.println("Not found! ");
-            
+
         for(i=0; i<ans.size(); i++)
             System.out.print(ans.get(i)+" ");
 
-        sc.close();
     }
     static boolean find(int[] arr, List<Integer> ans, int index, int target, int n ){
         if(index==n){
