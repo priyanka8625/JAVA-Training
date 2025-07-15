@@ -8,7 +8,6 @@ public class Magic {
         sc.close();
     }
     static boolean isMagic(int n){
-        // an automorphic number is the one whose sqaure contains the original number at last (ends with org no)
         if(n==1)
             return true;
         
