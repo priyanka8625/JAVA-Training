@@ -8,7 +8,7 @@ public class Niven {
         sc.close();
     }
     static boolean isNiven(int n){
-        // a spy number is the one whose sum of factorial of all the digits gives the original number
+        // a niven number is the one whose sum of all the digits can fully divide the original number
         int sum = 0, temp=n;
         while(n>0){
             int digit = n%10;
