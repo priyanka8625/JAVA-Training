@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -20,6 +21,18 @@ public class FreqArray {
         sc.close();
     }
     static void find(int[] arr, int n){
+        Arrays.sort(arr);
+        int i=0;
+        while(i<n){
+            int count=0, key=arr[i];
+            while(i<n && key == arr[i]){
+                count++;
+                i++;
+            }
+            System.out.println(key + ":" + count);
+        }
+    }
+    static void find2(int[] arr, int n){
         Map<Integer, Integer> ans = new HashMap<>();
 
         for(int i=0; i<n; i++){
