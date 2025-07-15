@@ -18,10 +18,20 @@ public class Caprica {
             return false;
             
         square = temp;
-        int n1 = square % 100;//last two digits
-        square /= 100;
-        int n2 = square % 100;
+        int half = len/2, n1=0, n2=0;
         
+        while(half-- > 0){
+            int digit = square%10;
+            n2 = n2*10 + digit;
+            square /= 10;
+        }
+        
+        half = len/2;
+        while(half-- > 0){
+            int digit = square%10;
+            n1 =  n1*10 + digit;
+            square /= 10;
+        }
         if(n1 + n2 == n)
             return true;
         return false;
