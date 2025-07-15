@@ -8,7 +8,7 @@ public class SpyNumber {
         sc.close();
     }
     static boolean isSpy(int n){
-        // a perfect number is a number whose sum after adding all of it's divisors gives the same original number
+        // a spy number is the one whose sum and products of all the digits of the number are equal
         int sum = 0, prod=1;
         while(n>0){
             int digit = n%10;
