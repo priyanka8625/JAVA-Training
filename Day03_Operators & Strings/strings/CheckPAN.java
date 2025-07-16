@@ -7,7 +7,31 @@ public class CheckPAN {
         System.out.println(soln1(number)? "Valid" : "Invalid");
     }
     static boolean soln2(String number){
+        int len = number.length();
+        if(len<=0 || len>10){
+            return false;
+        }
+
+        int count = 0, index=0;
+
+        while(index<len && isAlpha(number.charAt(index))){
+            count++;
+            index++;
+        }
+        if(count != 5)
+            return false;
         
+        count = 0;
+        while(index<len && isDigit(number.charAt(index))){
+            count++;
+            index++;
+        }
+        if(count != 4)
+            return false;
+        
+        if(isAlpha(number.charAt(index)))
+            return true;
+        return false;
     }
     static boolean soln1(String number){
         int len = number.length();
