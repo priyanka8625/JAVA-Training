@@ -11,39 +11,61 @@ public class CheckPassword {
             return false;
         }
         int count = 0, n=str.length();
-        for(int i=0; i<n; i++){
-            char ch = str.charAt(i);
-            if(isUpper(ch)){
-                count++;
-                break;
-            }
-        }
-        for(int i=0; i<n; i++){
-            char ch = str.charAt(i);
-            if(isLower(ch)){
-                count++;
-                break;
-            }
-        }
-        for(int i=0; i<n; i++){
-            char ch = str.charAt(i);
-            if(isDigit(ch)){
-                count++;
-                break;
-            }
-        }
-        for(int i=0; i<n; i++){
-            char ch = str.charAt(i);
-            if(isSpecial(ch)){
-                count++;
-                break;
-            }
-        }
+        
+        count += upper(str)? 1 : 0;
+        count += lower(str)? 1 : 0;
+        count += digit(str)? 1 : 0;
+        count += special(str)? 1 : 0;
 
         if(count == 4)
             return true;
         return false;
     }
+    static boolean upper(String str){
+        for(int i=0; i<str.length(); i++){
+            char ch = str.charAt(i);
+            if(isUpper(ch)){
+                return true;
+            }
+        }
+        return false;
+    }
+    static boolean lower(String str){
+        for(int i=0; i<str.length(); i++){
+            char ch = str.charAt(i);
+            if(isLower(ch)){
+                return true;
+            }
+        }
+        return false;
+    }
+    static boolean digit(String str){
+        for(int i=str.length()-1; i>=0; i--){
+            char ch = str.charAt(i);
+            if(isDigit(ch)){
+                return true;
+            }else{
+                if(!isSpecial(ch)){
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
+    static boolean special(String str){
+        for(int i=str.length()-1; i>=0; i--){
+            char ch = str.charAt(i);
+            if(isSpecial(ch)){
+                return true;
+            }else{
+                if(!isDigit(ch))
+                    return false;
+            }
+        }
+        return false;
+    }
+
+
     static boolean isUpper(char ch){
         if(ch>='A' && ch<='Z'){
             return true;
@@ -69,7 +91,7 @@ public class CheckPassword {
         return false;
     }
 
-    
+
     static boolean soln1(String str){
         if(!(str.length()>=8 && str.length()<=15)){
             return false;
