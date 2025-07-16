@@ -7,6 +7,32 @@ public class ReverseVowels {
         soln2(number);
     }
     static void soln2(String str){
+        StringBuilder res = new StringBuilder(str);
+
+        int len = str.length();
+        int start=0, end=len-1;
+        while(start<=end){
+            while(start<end && !isVowel(res.charAt(start))){
+                start++;
+            }
+            while(start<end && !isVowel(res.charAt(end))){
+                end--;
+            }
+            if(start<=end)
+                swap(res, start, end);
+            start++;
+            end--;
+        }
+        System.out.println(res);
+    }
+    static void swap(StringBuilder res, int i, int j){
+        char ch = res.charAt(j);
+        res.setCharAt(j, res.charAt(i));
+        res.setCharAt(i, ch);
+    }
+
+    
+    static void soln1(String str){
         int len = str.length();
         
         String vowels = "";
