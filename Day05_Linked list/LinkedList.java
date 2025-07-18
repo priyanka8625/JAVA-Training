@@ -16,7 +16,7 @@ public class LinkedList {
         this.head = null;
     }
 
-    void insert(int data){
+    void insertAtEnd(int data){
         Node newNode = new Node(data);
 
         if(head == null){
@@ -30,6 +30,33 @@ public class LinkedList {
         current.next = newNode;
     }
 
+    void insertAtBegin(int data){
+        Node newNode = new Node(data);
+
+        if(head == null){
+            head = newNode;
+            return;
+        }
+        newNode.next = head;
+        head = newNode;
+    }
+
+    void insertAtMid(int data, int prevData){
+        Node newNode = new Node(data);
+
+        if(head == null){
+            System.out.println(prevData+" not found!");
+            return;
+        }
+        Node current = head;
+        while(current != null && current.data != prevData)
+            current = current.next;
+
+        if(current != null){
+            newNode.next = current.next;
+            current.next = newNode;
+        }
+    }
     void delete(int data){
         if(head == null){
             System.out.println("List is empty!");
@@ -64,10 +91,13 @@ public class LinkedList {
     }
     public static void main(String[] args) {
         LinkedList linkedList = new LinkedList();
-        linkedList.insert(10);
-        linkedList.insert(20);
-        linkedList.insert(30);
+        linkedList.insertAtBegin(10);
+        linkedList.insertAtMid(20, 10);
+        linkedList.insertAtMid(30, 10);
         linkedList.display();
+        linkedList.insertAtMid(40, 30);
+        linkedList.display();
+        
         linkedList.delete(20);
         linkedList.display();
         linkedList.delete(30);
