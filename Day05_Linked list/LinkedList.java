@@ -57,6 +57,21 @@ public class LinkedList {
             current.next = newNode;
         }
     }
+
+    void update(int oldData, int newData){
+        if(head == null){
+            System.out.println(oldData+" not found!");
+            return;
+        }
+        Node current = head;
+        while(current != null && current.data != oldData)
+            current = current.next;
+
+        if(current != null){
+            current.data = newData;
+        }
+    }
+
     void delete(int data){
         if(head == null){
             System.out.println("List is empty!");
@@ -74,6 +89,8 @@ public class LinkedList {
         }
         if(current.next != null){
             current.next = current.next.next;
+        }else{
+            System.out.println(data + " not found!");
         }
     }
 
@@ -89,20 +106,27 @@ public class LinkedList {
         }
         System.out.println();
     }
+
+    void reverse(){
+        Node prev = null, curr=head, next=null;
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
     public static void main(String[] args) {
         LinkedList linkedList = new LinkedList();
         linkedList.insertAtBegin(10);
-        linkedList.insertAtMid(20, 10);
-        linkedList.insertAtMid(30, 10);
+        linkedList.insertAtEnd(20);
+        linkedList.insertAtEnd(30);
+        linkedList.insertAtEnd(40);
+
+        linkedList.reverse();
         linkedList.display();
-        linkedList.insertAtMid(40, 30);
-        linkedList.display();
-        
-        linkedList.delete(20);
-        linkedList.display();
-        linkedList.delete(30);
-        linkedList.display();
-        linkedList.delete(10);
+        linkedList.reverse();
         linkedList.display();
     }
 }
