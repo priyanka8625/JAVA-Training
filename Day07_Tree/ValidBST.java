@@ -32,6 +32,7 @@ public class ValidBST {
         preorder(root.left);
         preorder(root.right);
     }
+    
     public static void main(String[] args) {
         ValidBST tree = new ValidBST();
         tree.root = new Node(50);
