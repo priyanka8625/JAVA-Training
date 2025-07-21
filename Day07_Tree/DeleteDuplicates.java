@@ -108,7 +108,14 @@ public class DeleteDuplicates {
 
         Map<Integer, Integer> eles = new HashMap<>();
         tree.getDuplicates(tree.root, eles);
-        System.out.println("Duplicate elements: "+eles);
+
+        System.out.println("Duplicate elements: ");
+        for(int ele : eles.keySet()){
+            if(eles.get(ele) > 1){
+                System.out.print(ele + " ");
+            }
+        }
+        System.out.println();
 
         tree.root = tree.deleteDuplicates(tree.root, eles);
         tree.preorder(tree.root);
