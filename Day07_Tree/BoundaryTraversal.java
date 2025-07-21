@@ -45,7 +45,7 @@ public class BoundaryTraversal {
             return;
         if(root.left == null && root.right == null)
             return;
-            
+
         System.out.print(root.data + " ");
         leftMost(root.left);
     }
