@@ -18,17 +18,13 @@ public class CodeForces144A {
     static int arrange(int[] arr, int n){
         int count = 0;
         int minIndex = min(arr, n);
-        if(minIndex != n-1){
-            count += n-1-minIndex;
-        }
-
         int maxIndex = max(arr, n);
-        if(maxIndex > minIndex){
-            count += maxIndex-1;
-        }else{
-            count += maxIndex;
-        }
 
+        if(maxIndex > minIndex){
+            count = maxIndex + n - minIndex - 2;
+        }else{
+            count = maxIndex + n - minIndex - 1;
+        }
         return count;
     }
     static int min(int[] arr, int n){
