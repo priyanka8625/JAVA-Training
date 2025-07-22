@@ -10,6 +10,7 @@ public class CodeForces141A {
     }
     static String amusingJoke(String guest, String host, String piles){
         int[] freq = new int[26];
+        
         for(int i=0; i<guest.length(); i++){
             char ch = guest.charAt(i);
             freq[ch-'A']++;
