@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -20,9 +21,22 @@ public class Graph {
         for(int vertex : graph.keySet()){
             System.out.print(vertex + "-> ");
             for(int neigh : graph.get(vertex)){
-                System.out.print(neigh + " ");
+                System.out.print("(" + neigh + ", "+ System.identityHashCode(neigh) +") ");
             }
             System.out.println();
+        }
+    }
+    void dfs(int start){
+        HashSet<Integer> visited = new HashSet<>();
+        dfsHelper(start, visited);
+    }
+    void dfsHelper(int curr, HashSet<Integer> visited){
+        visited.add(curr);
+        System.out.print(curr + " ");
+        for(int nbr : graph.get(curr)){
+            if(!visited.contains(nbr)){
+                dfsHelper(nbr, visited);
+            }
         }
     }
     public static void main(String[] args) {
@@ -44,5 +58,12 @@ public class Graph {
             g.addEdge(u, v);
         }
         g.display();
+        g.dfs(1);
+
+        // //just for learning purpose : can we have multiple main methods
+        // main();
+    }
+    public static void main() {
+        System.out.println("priyanka");
     }
 }
