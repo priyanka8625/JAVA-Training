@@ -11,6 +11,8 @@ public class Graph {
         graph.putIfAbsent(vertex, new LinkedList<>());
     }
     void addEdge(int u, int v){
+        addVertex(u);
+        addVertex(v);
         graph.get(u).add(v);
         graph.get(v).add(u);
     }
