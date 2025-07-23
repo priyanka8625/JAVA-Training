@@ -28,7 +28,10 @@ public class Graph {
     }
     void dfs(int start){
         HashSet<Integer> visited = new HashSet<>();
-        dfsHelper(start, visited);
+        for(int vertex : graph.keySet()){
+            if(!visited.contains(vertex))
+                dfsHelper(vertex, visited);
+        }
     }
     void dfsHelper(int curr, HashSet<Integer> visited){
         visited.add(curr);
