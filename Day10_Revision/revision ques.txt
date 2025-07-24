@@ -1,0 +1,8 @@
+1. inorder postorder preorder iteratively
+2. delete specific node from undirected graph - 
+3. infix to postfix and infix to prefix conversion using stack - 
+4. sort the singly linked list -
+5. reverse the singly linked list not just printing -
+
+
+
