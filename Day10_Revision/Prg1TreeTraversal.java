@@ -59,7 +59,30 @@ public class Prg1TreeTraversal {
         List<Node> nodes = new ArrayList<>();
         nodes.add(root);
         while(!nodes.isEmpty()){
+            Node curr = nodes.removeFirst();
+            System.out.print(curr.data+" ");
 
+            if(curr.right != null){
+                nodes.addFirst(curr.right);
+            }
+            if(curr.left != null){
+                nodes.addFirst(curr.left);
+            }
+        }
+    }
+
+    void postorder(Node root){
+        List<Node> nodes = new ArrayList<>();
+        nodes.add(root);
+        while(!nodes.isEmpty()){
+            Node curr = nodes.removeLast();
+            if(curr.left != null){
+                nodes.addFirst(curr.left);
+            }
+            if(curr.right != null){
+                nodes.addFirst(curr.right);
+            }
+            
         }
     }
     public static void main(String[] args) {
@@ -73,5 +96,6 @@ public class Prg1TreeTraversal {
         }
 
         t.inorder(t.root);
+        t.preorder(t.root);
     }
 }
