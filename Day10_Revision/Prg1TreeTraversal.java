@@ -69,21 +69,28 @@ public class Prg1TreeTraversal {
                 nodes.addFirst(curr.left);
             }
         }
+        System.out.println();
     }
 
     void postorder(Node root){
         List<Node> nodes = new ArrayList<>();
+        List<Integer> ans = new ArrayList<>();
+
         nodes.add(root);
+
         while(!nodes.isEmpty()){
             Node curr = nodes.removeLast();
-            if(curr.left != null){
-                nodes.addFirst(curr.left);
-            }
+            ans.add(curr.data);
+            
             if(curr.right != null){
                 nodes.addFirst(curr.right);
             }
-            
+            if(curr.left != null){
+                nodes.addFirst(curr.left);
+            }
         }
+
+        System.out.println(ans.reversed());
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -97,5 +104,6 @@ public class Prg1TreeTraversal {
 
         t.inorder(t.root);
         t.preorder(t.root);
+        t.postorder(t.root);
     }
 }
